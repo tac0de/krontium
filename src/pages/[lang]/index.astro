@@ -1,0 +1,41 @@
+---
+import ArchiveLens from "../../components/ArchiveLens";
+import { archiveCards } from "../../data/krontium";
+import { languageCodes, languages, type Language } from "../../data/i18n";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return languageCodes.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Language;
+const copy = languages[lang];
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={copy.title} description={copy.subtitle}>
+  <main class="archive-page">
+    <header class="archive-hero">
+      <a href={base} class="back-link">Krontium</a>
+      <p class="kicker">{copy.archive}</p>
+      <h1>{copy.title}</h1>
+      <p>{copy.subtitle}</p>
+      <a class="primary-link" href={`${base}${lang}/chronicles/book-01/chapter-001/`}>
+        {copy.readFirst}
+      </a>
+    </header>
+
+    <ArchiveLens client:load />
+
+    <section class="archive-grid" aria-label="Archive records">
+      {archiveCards.map((card) => (
+        <article class="record-card">
+          <p>{card.eyebrow}</p>
+          <h2>{card.title}</h2>
+          <span></span>
+          <p>{card.body}</p>
+        </article>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

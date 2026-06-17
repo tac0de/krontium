@@ -1,0 +1,32 @@
+---
+import { chapterSample } from "../../../../data/krontium";
+import { languageCodes, languages, type Language } from "../../../../data/i18n";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return languageCodes.map((lang: Language) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Language;
+const copy = languages[lang];
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={`${copy.readerLabel} - Krontium`} description={copy.subtitle}>
+  <main class="reader-page">
+    <nav class="reader-nav" aria-label="Reader navigation">
+      <a href={`${base}${lang}/`}>{copy.archive}</a>
+      <a href={base}>{copy.languagePrompt}</a>
+    </nav>
+
+    <article class="chapter">
+      <p class="kicker">{copy.readerLabel}</p>
+      <h1>The Bark Measurement</h1>
+      <aside>
+        Preserved in the neutral cloister's third winter ledger. Translation
+        draft. Biological notes remain disputed.
+      </aside>
+      {chapterSample.map((paragraph: string) => <p>{paragraph}</p>)}
+    </article>
+  </main>
+</BaseLayout>

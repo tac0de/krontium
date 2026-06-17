@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LanguageGrid from "../components/LanguageGrid.astro";
+---
+
+<BaseLayout
+  title="Krontium Archive"
+  description="A multilingual archive for the grounded epic fantasy novel Krontium."
+>
+  <main class="shell">
+    <section class="hero" aria-labelledby="site-title">
+      <div class="artifact" aria-hidden="true">
+        <div class="artifact__ring artifact__ring--outer"></div>
+        <div class="artifact__ring artifact__ring--middle"></div>
+        <div class="artifact__ring artifact__ring--inner"></div>
+        <div class="artifact__god artifact__god--earth"></div>
+        <div class="artifact__god artifact__god--sky"></div>
+        <div class="artifact__god artifact__god--sea"></div>
+      </div>
+      <div class="hero__content">
+        <p class="kicker">Monastic archive / biological myth / war chronicle</p>
+        <h1 id="site-title">Krontium</h1>
+        <p>
+          Three ancient gods are studied like specimens, feared like sovereigns,
+          and misread like history. Humans survive by becoming faster than the
+          world that made them weak.
+        </p>
+        <LanguageGrid />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
