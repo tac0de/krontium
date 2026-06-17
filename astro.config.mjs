@@ -3,6 +3,6 @@ import react from "@astrojs/react";
 
 export default defineConfig({
   site: "https://tac0de.github.io",
-  base: "/krontium",
+  base: "/krontium/",
   integrations: [react()],
 });
