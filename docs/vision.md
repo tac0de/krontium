@@ -2,7 +2,7 @@
 
 ## Current Web Positioning
 
-Krontium.com/GitHub Pages is now an experimental no-text CSS art site. The novel content is not the website's responsibility unless explicitly added later. The website should operate as a browser-native visual artwork that uses Krontium as a signal for mythic biology and pressure, not as a conventional synopsis, lore archive, or multilingual text surface.
+Krontium.com/GitHub Pages is now an experimental no-text CSS art site. The novel content is not the website's responsibility unless explicitly added later. The website should operate as a browser-native visual artwork that uses Krontium as a signal for mythic biology, pressure, territory, and early civilization, not as a conventional synopsis, lore archive, or multilingual text surface.
 
 ## Source Motifs
 
@@ -12,11 +12,11 @@ The artwork may still draw from the novel's source motifs:
 - Sky god: a bird-human form shaped by feathered anatomy, flight, bone structure, and traces of dinosaur-to-bird evolution.
 - Sea god: an octopus-human form shaped by cephalopod intelligence, chromatophores, soft anatomy, and deep marine life.
 
-These motifs should appear as abstract systems: rings, tendrils, feather ribs, ink fields, pressure lines, typographic fragments, and responsive motion.
+These motifs should appear as discovered visual records rather than mascot characters: cave-wall marks, biological plate structures, territorial lines, rings, tendrils, feather ribs, ink fields, pressure lines, and controlled responsive motion.
 
 ## Tone
 
-Krontium should feel like a strange page the browser is barely containing: precise, tactile, multilingual, and non-template.
+Krontium should feel like a strange page the browser is barely containing: precise, tactile, archaeological, biological, and non-template.
 
 Use:
 
@@ -24,7 +24,8 @@ Use:
 - procedural-feeling geometry
 - textless composition
 - controlled motion
-- abstract biological forms
+- discovered-record surfaces
+- biological and cartographic forms
 - black, bone, oxidized green, arterial red, deep-water blue, and bronze accents
 
 Avoid:
@@ -33,6 +34,8 @@ Avoid:
 - lore encyclopedia structure
 - generic cards
 - stock fantasy atmosphere
+- cute mascot characters
+- abstract decoration without world information
 - overexplaining the story
 - UI chrome that weakens the artwork
 

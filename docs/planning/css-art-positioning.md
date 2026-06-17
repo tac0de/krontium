@@ -27,16 +27,20 @@ Non-goals:
 
 ## Visual Direction
 
-Build a kinetic browser-native sculpture:
+Build a no-text archaeological/specimen map. Use
+`docs/planning/visual-reference-board.md` as the active visual reference source
+before further production CSS work.
 
-- CSS-only black bloom
-- biological rings and pressure bands
-- feather-rib diagonals
-- ink/sea pulse fields
-- root-like vertical cuts
+- cave-wall or parchment substrate
+- god systems as large nonhuman marks, not mascot characters
+- biological rings, anatomy, feather ribs, roots, currents, and pressure bands
+- human civilization as tiny fires, road marks, fortifications, tools, and route
+  growth
+- monastery as a central geometric neutral seal
 - no visible labels
 
-The page should be strange, quiet, and visually self-contained.
+The page should feel like a discovered visual record, not a cartoon scene or
+abstract background.
 
 ## Implementation Rules
 
@@ -45,3 +49,5 @@ The page should be strange, quiet, and visually self-contained.
 - Preserve `/en`, `/ko`, `/zh`, `/ja` routes only for compatibility.
 - Avoid reusable card UI unless it is visually transformed into an artwork element.
 - Every visual section should be inspectable on mobile.
+- Reject variants that read as mascots, sticker sheets, generic fantasy maps,
+  cute character scenes, or abstract decoration.
