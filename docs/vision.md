@@ -2,7 +2,7 @@
 
 ## Current Web Positioning
 
-Krontium.com/GitHub Pages is now an experimental CSS art site. The novel content is not the website's responsibility unless explicitly added later. The website should operate as a browser-native visual artwork that uses the name Krontium as a signal for mythic biology, pressure, and language, not as a conventional synopsis or lore archive.
+Krontium.com/GitHub Pages is now an experimental no-text CSS art site. The novel content is not the website's responsibility unless explicitly added later. The website should operate as a browser-native visual artwork that uses Krontium as a signal for mythic biology and pressure, not as a conventional synopsis, lore archive, or multilingual text surface.
 
 ## Source Motifs
 
@@ -22,7 +22,7 @@ Use:
 
 - pure CSS composition
 - procedural-feeling geometry
-- layered type
+- textless composition
 - controlled motion
 - abstract biological forms
 - black, bone, oxidized green, arterial red, deep-water blue, and bronze accents
@@ -38,11 +38,11 @@ Avoid:
 
 ## Website Experience
 
-The first screen is the artwork. The user should not feel they arrived at a blog, book promo, SaaS landing page, or template. Language routes may exist as alternate captions/labels, but the site itself is primarily visual.
+The first screen is the artwork. The user should not feel they arrived at a blog, book promo, SaaS landing page, or template. Language routes may exist for compatibility, but the site itself is textless by default.
 
 Primary actions:
 
 - inspect the moving composition
-- switch language labels
-- enter the experimental field
-- follow minimal fragments if desired
+- inspect the visual field
+- experience motion and pressure
+- treat the browser surface as the artwork

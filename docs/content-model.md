@@ -2,14 +2,14 @@
 
 ## Languages
 
-Supported language routes:
+Compatibility language routes:
 
 - English: `/en/`
 - Korean: `/ko/`
 - Chinese: `/zh/`
 - Japanese: `/ja/`
 
-The same route structure should exist across languages when possible.
+The same route structure may exist across languages for URL compatibility, but visible multilingual UI is not part of the current no-text site.
 
 ## World Data
 
@@ -25,7 +25,7 @@ Initial entities:
 
 ## Long-form Fiction
 
-Long-form fiction is intentionally out of scope for the current website. If prose is added later, use content collections or MDX. Until then, route content should remain minimal and visual.
+Long-form fiction is intentionally out of scope for the current website. If prose is added later, use content collections or MDX. Until then, route content should remain textless and visual.
 
 ## Routing Pattern
 

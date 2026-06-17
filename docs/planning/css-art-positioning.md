@@ -4,7 +4,7 @@ Status: active direction for the website.
 
 ## Decision
 
-Krontium's website is an experimental CSS art site. The novel remains a separate authoring project. The website should not try to explain the novel, summarize lore, or behave like a conventional fiction archive.
+Krontium's website is an experimental no-text CSS art site. The novel remains a separate authoring project. The website should not try to explain the novel, summarize lore, localize copy, or behave like a conventional fiction archive.
 
 ## Design Brief
 
@@ -16,7 +16,7 @@ Audience:
 
 Primary action:
 
-- look, inspect, switch language, feel the identity
+- look and inspect without reading
 
 Non-goals:
 
@@ -29,19 +29,19 @@ Non-goals:
 
 Build a kinetic browser-native sculpture:
 
-- CSS-only chronolith
+- CSS-only black bloom
 - biological rings and pressure bands
 - feather-rib diagonals
 - ink/sea pulse fields
 - root-like vertical cuts
-- multilingual labels as part of the art
+- no visible labels
 
-The page should be strange but still navigable.
+The page should be strange, quiet, and visually self-contained.
 
 ## Implementation Rules
 
 - Prefer CSS art over image assets.
-- Keep copy short.
-- Preserve `/en`, `/ko`, `/zh`, `/ja` routes for multilingual labels.
+- Keep visible copy at zero.
+- Preserve `/en`, `/ko`, `/zh`, `/ja` routes only for compatibility.
 - Avoid reusable card UI unless it is visually transformed into an artwork element.
 - Every visual section should be inspectable on mobile.

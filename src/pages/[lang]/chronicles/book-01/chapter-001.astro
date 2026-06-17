@@ -1,5 +1,4 @@
 ---
-import { chapterSample } from "../../../../data/krontium";
 import { languageCodes, languages, type Language } from "../../../../data/i18n";
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
@@ -15,19 +14,24 @@ const base = import.meta.env.BASE_URL;
 <BaseLayout title={`${copy.readerLabel} - Krontium`} description={copy.subtitle}>
   <main class="fragment-page">
     <nav class="reader-nav" aria-label="Reader navigation">
-      <a href={`${base}${lang}/`}>{copy.archive}</a>
-      <a href={base}>{copy.languagePrompt}</a>
+      <a href={`${base}${lang}/`} class="silent-link" aria-label="Return to language artwork"></a>
+      <a href={base} class="silent-link" aria-label="Return to Krontium artwork"></a>
     </nav>
 
-    <article class="fragment">
-      <p class="mono">{copy.readerLabel}</p>
-      <h1>Signal Fragment</h1>
-      <div class="fragment-art" aria-hidden="true">
-        <i />
-        <i />
-        <i />
+    <article class="null-bloom fragment-bloom" aria-label="Krontium Null Bloom CSS artwork">
+      <div class="bloom-core" aria-hidden="true">
+        <i class="ring ring-a"></i>
+        <i class="ring ring-b"></i>
+        <i class="ring ring-c"></i>
+        <i class="cut cut-a"></i>
+        <i class="cut cut-b"></i>
+        <i class="cut cut-c"></i>
+        <i class="nerve nerve-a"></i>
+        <i class="nerve nerve-b"></i>
+        <i class="nerve nerve-c"></i>
+        <i class="veil veil-a"></i>
+        <i class="veil veil-b"></i>
       </div>
-      {chapterSample.map((paragraph: string) => <p>{paragraph}</p>)}
     </article>
   </main>
 </BaseLayout>

@@ -1,36 +1,26 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import LanguageGrid from "../components/LanguageGrid.astro";
 ---
 
 <BaseLayout
   title="Krontium"
-  description="An experimental multilingual CSS art field."
+  description="An experimental no-text CSS art field."
 >
   <main class="shell">
-    <section class="art-field" aria-labelledby="site-title">
-      <div class="css-sculpture" aria-hidden="true">
-        <div class="orbit orbit-a"></div>
-        <div class="orbit orbit-b"></div>
-        <div class="orbit orbit-c"></div>
-        <div class="root-array"></div>
-        <div class="wing-array"></div>
-        <div class="ink-array"></div>
-        <div class="pressure-lines"></div>
+    <section class="null-bloom" aria-label="Krontium Null Bloom CSS artwork">
+      <div class="bloom-core" aria-hidden="true">
+        <i class="ring ring-a"></i>
+        <i class="ring ring-b"></i>
+        <i class="ring ring-c"></i>
+        <i class="cut cut-a"></i>
+        <i class="cut cut-b"></i>
+        <i class="cut cut-c"></i>
+        <i class="nerve nerve-a"></i>
+        <i class="nerve nerve-b"></i>
+        <i class="nerve nerve-c"></i>
+        <i class="veil veil-a"></i>
+        <i class="veil veil-b"></i>
       </div>
-      <div class="art-copy">
-        <p class="mono">CSS ART FIELD / NO SYNOPSIS / LIVE BROWSER SURFACE</p>
-        <h1 id="site-title">Krontium</h1>
-        <p>
-          A multilingual field of root, wing, ink, pressure, and unstable type.
-          The novel stays elsewhere. This page is the signal.
-        </p>
-        <LanguageGrid />
-      </div>
-      <aside class="field-readout" aria-label="CSS readout">
-        <span>render mode</span>
-        gradients / masks / borders / transforms / no canvas / no image hero
-      </aside>
     </section>
   </main>
 </BaseLayout>
