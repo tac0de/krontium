@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import KrontiumDiorama from "../components/KrontiumDiorama.astro";
 ---
 
 <BaseLayout
@@ -7,20 +8,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="An experimental no-text CSS art field."
 >
   <main class="shell">
-    <section class="null-bloom" aria-label="Krontium Null Bloom CSS artwork">
-      <div class="bloom-core" aria-hidden="true">
-        <i class="ring ring-a"></i>
-        <i class="ring ring-b"></i>
-        <i class="ring ring-c"></i>
-        <i class="cut cut-a"></i>
-        <i class="cut cut-b"></i>
-        <i class="cut cut-c"></i>
-        <i class="nerve nerve-a"></i>
-        <i class="nerve nerve-b"></i>
-        <i class="nerve nerve-c"></i>
-        <i class="veil veil-a"></i>
-        <i class="veil veil-b"></i>
-      </div>
-    </section>
+    <KrontiumDiorama />
   </main>
 </BaseLayout>
