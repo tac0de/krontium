@@ -4,33 +4,32 @@ import LanguageGrid from "../components/LanguageGrid.astro";
 ---
 
 <BaseLayout
-  title="Krontium Archive"
-  description="A multilingual archive for the grounded epic fantasy novel Krontium."
+  title="Krontium"
+  description="An experimental multilingual CSS art field."
 >
   <main class="shell">
-    <section class="index-slab" aria-labelledby="site-title">
-      <div class="slab-visual" aria-hidden="true">
-        <img class="slab-plate slab-plate--earth" src={`${import.meta.env.BASE_URL}plates/earth.svg`} alt="" />
-        <img class="slab-plate slab-plate--sky" src={`${import.meta.env.BASE_URL}plates/sky.svg`} alt="" />
-        <img class="slab-plate slab-plate--sea" src={`${import.meta.env.BASE_URL}plates/sea.svg`} alt="" />
-        <div class="slab-map">
-          <img src={`${import.meta.env.BASE_URL}plates/war-atlas.svg`} alt="" />
-        </div>
+    <section class="art-field" aria-labelledby="site-title">
+      <div class="css-sculpture" aria-hidden="true">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="orbit orbit-c"></div>
+        <div class="root-array"></div>
+        <div class="wing-array"></div>
+        <div class="ink-array"></div>
+        <div class="pressure-lines"></div>
       </div>
-      <div class="slab-copy">
-        <p class="kicker">Neutral Cloister / Index Slab / Restricted Translation</p>
+      <div class="art-copy">
+        <p class="mono">CSS ART FIELD / NO SYNOPSIS / LIVE BROWSER SURFACE</p>
         <h1 id="site-title">Krontium</h1>
         <p>
-          Three ancient gods leave bodies in history. Monks measure what priests
-          forbid, armies exploit what temples deny, and humans survive by making
-          memory faster than flesh.
+          A multilingual field of root, wing, ink, pressure, and unstable type.
+          The novel stays elsewhere. This page is the signal.
         </p>
         <LanguageGrid />
       </div>
-      <aside class="slab-note" aria-label="Archive provenance">
-        <span>provenance</span>
-        Preserved from battlefield specimens, treaty copies, port ledgers, and
-        marginal objections copied under neutral seal.
+      <aside class="field-readout" aria-label="CSS readout">
+        <span>render mode</span>
+        gradients / masks / borders / transforms / no canvas / no image hero
       </aside>
     </section>
   </main>

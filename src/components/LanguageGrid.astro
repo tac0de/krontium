@@ -5,12 +5,12 @@ const entries = Object.entries(languages) as [Language, (typeof languages)[Langu
 const base = import.meta.env.BASE_URL;
 ---
 
-<nav class="language-grid" aria-label="Language records">
+<nav class="language-grid" aria-label="Language labels">
   {entries.map(([code, language]) => (
     <a href={`${base}${code}/`} class="language-tile">
       <span>{language.short}</span>
       <strong>{language.label}</strong>
-      <small>edition witness</small>
+      <small>{language.enter}</small>
     </a>
   ))}
 </nav>

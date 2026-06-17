@@ -1,38 +1,35 @@
 export const gods = [
   {
-    name: "Root-Mantled Earth",
-    archiveId: "D-01 / TERRESTRIAL BODY",
-    domain: "Soil, wood, fungi, early land life",
-    form: "A tree-human figure whose skin is bark, root, cambium, and old wound.",
-    specimen: "Cambium rings, root scars, fungal veining, seed chambers.",
-    doctrine: "Land-right, burial, inheritance, oath, and the patience of dynasties.",
-    exploit: "Human companies learn that divine root tissue burns only after ash-banking through wet nights.",
-    historicalReading:
-      "Monastic biologists describe this god through the slow conquest of land: spores, roots, symbiosis, decay, and patient soil.",
+    name: "Root Signal",
+    archiveId: "CSS-01",
+    domain: "rings / roots / vertical pressure",
+    form: "A field of cambium lines, fungal cuts, and slow green pulses.",
+    specimen: "Generated with borders, gradients, masks, and pseudo-elements.",
+    doctrine: "No lore panel. The form is the statement.",
+    exploit: "Use the browser as the organism.",
+    historicalReading: "A CSS-only trace for earth-body memory.",
     plate: "earth",
   },
   {
-    name: "Bone-Winged Sky",
-    archiveId: "D-02 / AERIAL BODY",
-    domain: "Air, migration, feather, predation",
-    form: "A bird-human figure with hollow bones, feathered arms, and a stern avian skull-line.",
-    specimen: "Hollow ribs, feather barbs, egg-shell fragments, migratory stress marks.",
-    doctrine: "Witness, omen, kingship, exposure, distance, and punishment from above.",
-    exploit: "Courier towers and bad-weather marches turn prophecy into state logistics.",
-    historicalReading:
-      "Its cult preserves arguments about dinosaurs, flight, heat, eggs, and whether the sky was earned through hunger.",
+    name: "Wing Signal",
+    archiveId: "CSS-02",
+    domain: "ribs / diagonals / hollow motion",
+    form: "A rotating geometry of feather bones and signal slashes.",
+    specimen: "Generated with repeating-linear-gradient and transform layers.",
+    doctrine: "Do not illustrate a bird. Let flight become structure.",
+    exploit: "Motion is sparse enough to inspect.",
+    historicalReading: "A CSS-only trace for aerial pressure.",
     plate: "sky",
   },
   {
-    name: "Ink-Blooded Sea",
-    archiveId: "D-03 / PELAGIC BODY",
-    domain: "Deep water, memory, soft intelligence",
-    form: "An octopus-human figure whose skin changes like a living war map.",
-    specimen: "Chromatophore fields, arm nerve clusters, ink sacs, pressure lesions.",
-    doctrine: "Hidden speech, treaty betrayal, drowned memory, disguise, and trade.",
-    exploit: "Port ledgers, grain delays, and coded ink decide which army starves first.",
-    historicalReading:
-      "Sea monasteries record chromatophores, distributed nerves, tool use, and the terror of intelligence without bones.",
+    name: "Ink Signal",
+    archiveId: "CSS-03",
+    domain: "chromatophore / pulse / soft intelligence",
+    form: "A dark field of circular nerves, ink blooms, and pressure waves.",
+    specimen: "Generated with radial gradients and animated opacity.",
+    doctrine: "The sea is not a background. It is the interface state.",
+    exploit: "Let labels float like unreliable captions.",
+    historicalReading: "A CSS-only trace for deep-water memory.",
     plate: "sea",
   },
 ];
@@ -72,7 +69,7 @@ export const marginalia = [
 ];
 
 export const chapterSample = [
-  "The first monk to measure the god of earth did not pray. He cut a square of bark from the fallen idol and counted the rings until his knife dulled.",
-  "In the capital, men called this blasphemy. On the frontier, soldiers called it useful. If a god could grow, rot, scar, and drink from the ground, then a god could be starved.",
-  "That winter, the human companies learned to burn wet roots by banking ash through the night. By spring, the older peoples stopped laughing at their small hands.",
+  "Krontium is not a synopsis here.",
+  "It is a browser field: root, wing, ink, pressure, language.",
+  "The novel can remain elsewhere. This surface is only the signal.",
 ];

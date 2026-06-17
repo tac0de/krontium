@@ -25,7 +25,7 @@ Initial entities:
 
 ## Long-form Fiction
 
-Chapters should eventually move into content collections or MDX files. The first prototype keeps a sample chapter page in Astro to establish layout, navigation, annotations, and multilingual routing.
+Long-form fiction is intentionally out of scope for the current website. If prose is added later, use content collections or MDX. Until then, route content should remain minimal and visual.
 
 ## Routing Pattern
 

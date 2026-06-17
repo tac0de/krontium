@@ -6,8 +6,8 @@ export default function ArchiveLens() {
   const god = gods[active];
 
   return (
-    <section className="lens" aria-label="Ancient gods archive lens">
-      <div className="lens__controls" role="tablist" aria-label="Ancient gods">
+    <section className="signal-lens" aria-label="Krontium CSS signal selector">
+      <div className="signal-lens__controls" role="tablist" aria-label="Signals">
         {gods.map((item, index) => (
           <button
             className={index === active ? "is-active" : ""}
@@ -22,30 +22,31 @@ export default function ArchiveLens() {
           </button>
         ))}
       </div>
-      <article className="lens__plate">
-        <div>
-          <p className="plate-code">{god.archiveId}</p>
+      <article className="signal-lens__stage" data-signal={god.plate}>
+        <div className="signal-art" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </div>
+        <div className="signal-copy">
+          <p className="mono">{god.archiveId}</p>
           <h2>{god.name}</h2>
           <p>{god.domain}</p>
-        </div>
-        <div className="plate-body">
-          <img src={`${import.meta.env.BASE_URL}plates/${god.plate}.svg`} alt="" />
           <dl>
             <div>
-              <dt>Observed</dt>
+              <dt>Material</dt>
               <dd>{god.specimen}</dd>
             </div>
             <div>
-              <dt>Doctrine</dt>
+              <dt>Rule</dt>
               <dd>{god.doctrine}</dd>
             </div>
             <div>
-              <dt>Exploit</dt>
+              <dt>Behavior</dt>
               <dd>{god.exploit}</dd>
             </div>
           </dl>
         </div>
-        <p className="plate-note">{god.historicalReading}</p>
       </article>
     </section>
   );
