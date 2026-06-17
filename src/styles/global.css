@@ -1,16 +1,11 @@
 :root {
   color-scheme: dark;
-  --void: #050403;
-  --wall: #21160d;
-  --wall-deep: #0a0705;
-  --ochre: #9f7a45;
-  --bone: #e4c98e;
-  --line: rgba(228, 201, 142, 0.34);
-  --line-soft: rgba(228, 201, 142, 0.16);
-  --sea: #315866;
-  --sea-soft: rgba(49, 88, 102, 0.34);
-  --blood: #923528;
-  --fire: #e59b3b;
+  --void: #020203;
+  --mineral-black: #050506;
+  --ore: #2d2824;
+  --bone: #d9c38a;
+  --oxidized: #496b70;
+  --ember: #a94d32;
 }
 
 * {
@@ -22,15 +17,15 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   background: var(--void);
 }
 
 body {
   background:
-    radial-gradient(circle at 50% 70%, rgba(229, 155, 59, 0.08), transparent 17rem),
-    radial-gradient(circle at 22% 44%, rgba(159, 122, 69, 0.18), transparent 30rem),
-    linear-gradient(120deg, #050403, #100b07 52%, #040302);
+    radial-gradient(circle at 50% 52%, rgba(217, 195, 138, 0.07), transparent 22rem),
+    radial-gradient(circle at 62% 62%, rgba(73, 107, 112, 0.16), transparent 34rem),
+    linear-gradient(120deg, #010102, #070606 52%, #020203);
 }
 
 body::before {
@@ -39,8 +34,8 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background:
-    repeating-linear-gradient(90deg, rgba(228, 201, 142, 0.018) 0 1px, transparent 1px 55px),
-    repeating-linear-gradient(0deg, rgba(228, 201, 142, 0.014) 0 1px, transparent 1px 47px);
+    repeating-linear-gradient(90deg, rgba(217, 195, 138, 0.018) 0 1px, transparent 1px 58px),
+    repeating-linear-gradient(0deg, rgba(217, 195, 138, 0.012) 0 1px, transparent 1px 47px);
   content: "";
 }
 
@@ -50,8 +45,8 @@ body::after {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 58%, transparent 0 32%, rgba(0, 0, 0, 0.54) 72%, rgba(0, 0, 0, 0.86) 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.58), transparent 24% 74%, rgba(0, 0, 0, 0.6));
+    radial-gradient(circle at 50% 50%, transparent 0 36%, rgba(0, 0, 0, 0.55) 74%, rgba(0, 0, 0, 0.92) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent 28% 72%, rgba(0, 0, 0, 0.75));
   content: "";
 }
 
@@ -77,385 +72,276 @@ body::after {
   opacity: 0;
 }
 
-.artifact-map {
+.mineral-field {
   position: relative;
   width: 100vw;
-  min-height: 100svh;
+  height: 100svh;
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at 52% 58%, rgba(228, 201, 142, 0.09), transparent 28rem),
-    radial-gradient(circle at 76% 54%, rgba(49, 88, 102, 0.18), transparent 26rem),
-    linear-gradient(135deg, var(--wall), #100b07 54%, #070504);
+    radial-gradient(circle at 50% 50%, rgba(217, 195, 138, 0.05), transparent 18rem),
+    linear-gradient(180deg, #010102, var(--mineral-black));
 }
 
-.artifact-map::before {
-  position: absolute;
-  inset: clamp(20px, 4vw, 58px) clamp(26px, 5vw, 82px);
-  z-index: 1;
-  border: 1px solid var(--line-soft);
-  background:
-    repeating-linear-gradient(28deg, transparent 0 18px, rgba(228, 201, 142, 0.07) 19px 20px),
-    radial-gradient(circle at 24% 52%, rgba(159, 122, 69, 0.16), transparent 22rem),
-    radial-gradient(circle at 74% 58%, rgba(146, 53, 40, 0.11), transparent 24rem);
-  clip-path: polygon(2% 3%, 98% 0, 96% 98%, 4% 96%);
-  box-shadow:
-    inset 0 0 100px rgba(0, 0, 0, 0.72),
-    0 0 80px rgba(0, 0, 0, 0.7);
-  content: "";
-}
-
-.artifact-map::after {
+.mineral-field::before {
   position: absolute;
   inset: 0;
-  z-index: 50;
+  z-index: 2;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 58%, transparent 0 30%, rgba(0, 0, 0, 0.32) 72%, rgba(0, 0, 0, 0.74) 100%),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 5px);
-  mix-blend-mode: multiply;
-  opacity: 0.82;
+    radial-gradient(circle at 50% 50%, transparent 0 36%, rgba(0, 0, 0, 0.15) 56%, rgba(0, 0, 0, 0.76) 100%),
+    repeating-linear-gradient(103deg, transparent 0 22px, rgba(217, 195, 138, 0.025) 23px 24px);
+  mix-blend-mode: soft-light;
   content: "";
 }
 
-.artifact-map i {
+.mineral-field::after {
   position: absolute;
-  display: block;
-  z-index: 5;
+  inset: clamp(12px, 2.2vw, 28px);
+  z-index: 3;
+  border: 1px solid rgba(217, 195, 138, 0.12);
   pointer-events: none;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.62);
+  content: "";
 }
 
-.earth-system {
-  left: -1%;
-  top: 21%;
-  z-index: 9;
-  width: 35%;
-  height: 55%;
-  background:
-    repeating-radial-gradient(ellipse at 52% 50%, transparent 0 28px, rgba(228, 201, 142, 0.22) 29px 31px, transparent 32px 56px),
-    conic-gradient(from 18deg, transparent, rgba(159, 122, 69, 0.42), transparent, rgba(228, 201, 142, 0.16), transparent);
-  clip-path: polygon(10% 12%, 68% 0, 95% 58%, 56% 100%, 2% 88%);
-  filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.5));
-  opacity: 0.8;
+.mineral-field__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.72;
+  mix-blend-mode: screen;
 }
 
-.earth-orbit {
-  left: var(--x);
-  top: var(--y);
-  z-index: 10;
-  width: var(--s);
+.mineral-field__css-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.mineral-field__halo {
+  position: absolute;
+  left: 50%;
+  top: 51%;
+  width: min(82vmin, 780px);
   aspect-ratio: 1;
-  border: 1px solid rgba(228, 201, 142, 0.34);
+  border: 1px solid rgba(217, 195, 138, 0.11);
   border-radius: 50%;
-  opacity: 0.62;
-}
-
-.earth-orbit-a {
-  --x: 5%;
-  --y: 23%;
-  --s: 25%;
-}
-
-.earth-orbit-b {
-  --x: 0%;
-  --y: 30%;
-  --s: 41%;
-  opacity: 0.34;
-}
-
-.earth-root {
-  left: 21%;
-  top: 24%;
-  z-index: 12;
-  width: 1px;
-  height: 56%;
-  background: linear-gradient(transparent, rgba(228, 201, 142, 0.62), transparent);
-  transform-origin: center;
-}
-
-.earth-root-a {
-  transform: rotate(-21deg);
-}
-
-.earth-root-b {
-  left: 26%;
-  transform: rotate(14deg);
-}
-
-.sky-trajectory {
-  z-index: 11;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(228, 201, 142, 0.46), transparent);
-  transform-origin: right;
-  opacity: 0.76;
-}
-
-.sky-trajectory-a {
-  right: 4%;
-  top: 30%;
-  width: 55%;
-  transform: rotate(-8deg);
-}
-
-.sky-trajectory-b {
-  right: 0;
-  top: 38%;
-  width: 65%;
-  transform: rotate(4deg);
-}
-
-.sky-trajectory-c {
-  right: 7%;
-  top: 23%;
-  width: 42%;
-  transform: rotate(-29deg);
-  opacity: 0.44;
-}
-
-.sky-bone {
-  right: 8%;
-  top: 15%;
-  z-index: 14;
-  width: 23%;
-  height: 38%;
   background:
-    linear-gradient(102deg, transparent 0 43%, rgba(228, 201, 142, 0.46) 44% 48%, transparent 49%),
-    repeating-linear-gradient(94deg, transparent 0 26px, rgba(228, 201, 142, 0.12) 27px 29px);
-  clip-path: polygon(14% 52%, 73% 0, 81% 31%, 100% 46%, 56% 58%, 52% 100%, 32% 64%);
-  opacity: 0.7;
-  filter: blur(0.3px);
+    radial-gradient(circle at 49% 47%, rgba(217, 195, 138, 0.2), transparent 7%),
+    radial-gradient(circle at 55% 58%, rgba(176, 76, 50, 0.16), transparent 18%),
+    radial-gradient(circle at 45% 44%, rgba(63, 107, 114, 0.22), transparent 28%),
+    radial-gradient(circle, rgba(10, 8, 6, 0.32), rgba(0, 0, 0, 0.86) 67%);
+  box-shadow:
+    inset 0 0 110px rgba(217, 195, 138, 0.05),
+    0 0 80px rgba(73, 107, 112, 0.11);
+  transform: translate(-50%, -50%) rotateX(62deg) rotateZ(-10deg);
 }
 
-.neutral-seal {
+.mineral-core {
+  position: absolute;
   left: 50%;
   top: 50%;
-  z-index: 24;
-  width: clamp(48px, 6vw, 76px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(228, 201, 142, 0.72);
+  width: clamp(210px, 32vmin, 430px);
+  aspect-ratio: 0.86;
+  clip-path: polygon(49% 0, 76% 12%, 98% 43%, 83% 83%, 52% 100%, 17% 84%, 0 45%, 21% 13%);
   background:
-    radial-gradient(circle, transparent 0 31%, rgba(228, 201, 142, 0.78) 32% 37%, transparent 38%),
-    radial-gradient(circle, rgba(10, 7, 5, 0.9), transparent 65%);
+    radial-gradient(circle at 52% 54%, rgba(190, 63, 34, 0.5), transparent 10%),
+    radial-gradient(circle at 36% 31%, rgba(219, 198, 139, 0.58), transparent 15%),
+    conic-gradient(from 205deg at 50% 47%, #070605, #564327 9%, #12100d 22%, #739094 33%, #0c0b09 47%, #c59b54 54%, #17120d 68%, #071011 77%, #070605);
+  filter: contrast(1.15) saturate(1.05);
+  opacity: 0.96;
+  transform: translate(-50%, -50%) rotate(-9deg);
+  animation: core-breathe 9s ease-in-out infinite;
   box-shadow:
-    0 0 22px rgba(228, 201, 142, 0.2),
-    inset 0 0 18px rgba(0, 0, 0, 0.68);
-  transform: translate(-50%, -50%) rotate(45deg);
+    inset -34px 40px 70px rgba(0, 0, 0, 0.82),
+    inset 24px -28px 42px rgba(217, 195, 138, 0.08),
+    0 0 42px rgba(217, 195, 138, 0.12),
+    0 0 110px rgba(73, 107, 112, 0.18);
 }
 
-.sea-system {
-  right: 5%;
-  bottom: 8%;
-  z-index: 13;
-  width: 43%;
-  aspect-ratio: 1.1;
-  border-radius: 50%;
+.mineral-core::before,
+.mineral-core::after,
+.mineral-core span {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.mineral-core::before {
   background:
-    repeating-radial-gradient(circle at 57% 50%, transparent 0 33px, rgba(228, 201, 142, 0.2) 34px 37px, transparent 38px 66px),
-    conic-gradient(from 20deg, transparent, rgba(49, 88, 102, 0.44), transparent, rgba(146, 53, 40, 0.18), transparent);
-  opacity: 0.76;
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.52));
+    linear-gradient(126deg, transparent 0 42%, rgba(217, 195, 138, 0.72) 42.5% 43.5%, transparent 44%),
+    linear-gradient(64deg, transparent 0 56%, rgba(73, 107, 112, 0.52) 56.5% 57.5%, transparent 58%),
+    linear-gradient(18deg, transparent 0 48%, rgba(176, 76, 50, 0.52) 48.5% 49.6%, transparent 50%);
+  mix-blend-mode: screen;
 }
 
-.sea-cell {
-  right: var(--x);
-  bottom: var(--y);
-  z-index: 16;
-  width: var(--s);
+.mineral-core::after {
+  background:
+    radial-gradient(circle at 54% 56%, rgba(255, 112, 52, 0.28), transparent 11%),
+    radial-gradient(circle at 35% 30%, rgba(255, 229, 161, 0.3), transparent 8%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.44), transparent 36% 62%, rgba(0, 0, 0, 0.58));
+}
+
+.mineral-core span:nth-child(1) {
+  clip-path: polygon(49% 0, 21% 13%, 45% 46%);
+  background: rgba(242, 214, 143, 0.22);
+}
+
+.mineral-core span:nth-child(2) {
+  clip-path: polygon(49% 0, 76% 12%, 57% 49%, 45% 46%);
+  background: rgba(69, 111, 116, 0.28);
+}
+
+.mineral-core span:nth-child(3) {
+  clip-path: polygon(76% 12%, 98% 43%, 57% 49%);
+  background: rgba(176, 76, 50, 0.17);
+}
+
+.mineral-core span:nth-child(4) {
+  clip-path: polygon(57% 49%, 98% 43%, 83% 83%, 52% 100%);
+  background: rgba(217, 195, 138, 0.13);
+}
+
+.mineral-core span:nth-child(5) {
+  clip-path: polygon(45% 46%, 57% 49%, 52% 100%, 17% 84%);
+  background: rgba(8, 7, 6, 0.48);
+}
+
+.mineral-core span:nth-child(6) {
+  clip-path: polygon(21% 13%, 45% 46%, 17% 84%, 0 45%);
+  background: rgba(92, 118, 112, 0.17);
+}
+
+.mineral-field__rings {
+  position: absolute;
+  left: 50%;
+  top: 51%;
+  width: min(90vmin, 860px);
   aspect-ratio: 1;
-  border: 1px solid rgba(228, 201, 142, 0.54);
+  border: 1px solid rgba(217, 195, 138, 0.18);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(49, 88, 102, 0.22), transparent 62%);
+  transform: translate(-50%, -50%) rotateX(68deg) rotateZ(-15deg);
+  box-shadow:
+    0 0 0 9vmin rgba(217, 195, 138, 0.012),
+    0 0 0 18vmin rgba(73, 107, 112, 0.018),
+    0 0 0 31vmin rgba(217, 195, 138, 0.008),
+    inset 0 0 42px rgba(217, 195, 138, 0.06);
+  animation: ring-drift 22s linear infinite;
 }
 
-.sea-cell-a {
-  --x: 38%;
-  --y: 33%;
-  --s: 12%;
+.mineral-field__shards,
+.mineral-field__veins {
+  position: absolute;
+  inset: 0;
 }
 
-.sea-cell-b {
-  --x: 24%;
-  --y: 18%;
-  --s: 11%;
+.mineral-field__shards i {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  clip-path: polygon(50% 0, 100% 38%, 62% 100%, 0 68%);
+  background:
+    linear-gradient(110deg, rgba(255, 237, 181, 0.85), rgba(119, 96, 55, 0.36) 34%, rgba(0, 0, 0, 0.68) 70%),
+    #8f7246;
+  opacity: 0.68;
+  transform: translate(-50%, -50%) rotate(var(--r));
+  transform-origin: 50% 70%;
+  animation: shard-pressure 6.5s ease-in-out infinite;
+  animation-delay: var(--delay);
+  box-shadow: 0 0 18px rgba(217, 195, 138, 0.16);
 }
 
-.sea-cell-c {
-  --x: 12%;
-  --y: 31%;
-  --s: 7%;
+.mineral-field__shards i.is-oxide {
+  background: linear-gradient(110deg, rgba(156, 222, 218, 0.78), rgba(47, 92, 98, 0.34) 44%, rgba(2, 7, 8, 0.72));
+  box-shadow: 0 0 22px rgba(73, 107, 112, 0.28);
 }
 
-.sea-cell-d {
-  --x: 49%;
-  --y: 15%;
-  --s: 16%;
+.mineral-field__shards i.is-ember {
+  background: linear-gradient(110deg, rgba(255, 150, 77, 0.84), rgba(129, 45, 27, 0.5) 44%, rgba(8, 3, 2, 0.76));
+  box-shadow: 0 0 24px rgba(176, 76, 50, 0.32);
 }
 
-.human-fire {
-  z-index: 30;
-  width: clamp(5px, 0.72vw, 9px);
-  aspect-ratio: 0.7;
-  border-radius: 70% 30% 60% 40%;
-  background: radial-gradient(circle at 45% 70%, #fff6b0, var(--fire) 35%, var(--blood) 72%);
-  box-shadow: 0 0 16px rgba(229, 155, 59, 0.6);
-  animation: fire 1.2s ease-in-out infinite;
+.mineral-field__veins i {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(217, 195, 138, 0.65), rgba(73, 107, 112, 0.44), transparent);
+  opacity: 0.26;
+  transform: rotate(var(--r));
+  animation: vein-pulse 7s ease-in-out infinite;
+  animation-delay: var(--delay);
 }
 
-.human-fire-a {
-  left: 47%;
-  bottom: 18%;
-}
+@keyframes core-breathe {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(-9deg) scale(0.985);
+  }
 
-.human-fire-b {
-  left: 52%;
-  bottom: 20%;
-  animation-delay: -0.4s;
-}
-
-.human-fort {
-  bottom: 15%;
-  z-index: 26;
-  width: 8%;
-  height: 2%;
-  background: repeating-linear-gradient(90deg, rgba(228, 201, 142, 0.58) 0 2px, transparent 2px 8px);
-}
-
-.human-fort-a {
-  left: 36%;
-}
-
-.human-fort-b {
-  left: 55%;
-}
-
-@keyframes fire {
   50% {
-    filter: brightness(1.3);
-    transform: scaleY(1.25) skewX(-7deg);
+    transform: translate(-50%, -50%) rotate(-6deg) scale(1.025);
+  }
+}
+
+@keyframes ring-drift {
+  to {
+    transform: translate(-50%, -50%) rotateX(68deg) rotateZ(345deg);
+  }
+}
+
+@keyframes shard-pressure {
+  0%,
+  100% {
+    opacity: 0.42;
+    translate: 0 0;
+  }
+
+  50% {
+    opacity: 0.82;
+    translate: 0 -8px;
+  }
+}
+
+@keyframes vein-pulse {
+  0%,
+  100% {
+    opacity: 0.08;
+  }
+
+  45% {
+    opacity: 0.42;
+  }
+}
+
+@media (max-width: 640px) {
+  .mineral-core {
+    width: clamp(190px, 62vmin, 300px);
+  }
+
+  .mineral-field__halo {
+    width: 118vmin;
+  }
+
+  .mineral-field__rings {
+    width: 124vmin;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
-
-@media (max-width: 760px) {
-  .artifact-map::before {
-    inset: 12px;
-  }
-
-  .earth-system {
-    left: -19%;
-    top: 22%;
-    width: 56%;
-    height: 45%;
-  }
-
-  .earth-orbit-a {
-    --x: -9%;
-    --y: 25%;
-    --s: 42%;
-  }
-
-  .earth-orbit-b {
-    --x: -25%;
-    --y: 26%;
-    --s: 66%;
-  }
-
-  .earth-root {
-    left: 18%;
-    top: 28%;
-    height: 42%;
-  }
-
-  .earth-root-b {
-    left: 25%;
-  }
-
-  .sky-trajectory-a {
-    right: -18%;
-    top: 27%;
-    width: 80%;
-  }
-
-  .sky-trajectory-b {
-    right: -24%;
-    top: 36%;
-    width: 88%;
-  }
-
-  .sky-trajectory-c {
-    right: -5%;
-    top: 18%;
-    width: 58%;
-  }
-
-  .sky-bone {
-    right: -13%;
-    top: 12%;
-    width: 46%;
-    height: 32%;
-  }
-
-  .neutral-seal {
-    top: 48%;
-  }
-
-  .sea-system {
-    right: -28%;
-    bottom: 10%;
-    width: 80%;
-  }
-
-  .sea-cell-a {
-    --x: 24%;
-    --y: 35%;
-    --s: 20%;
-  }
-
-  .sea-cell-b {
-    --x: 8%;
-    --y: 23%;
-    --s: 16%;
-  }
-
-  .sea-cell-c {
-    --x: -2%;
-    --y: 36%;
-    --s: 11%;
-  }
-
-  .sea-cell-d {
-    --x: 42%;
-    --y: 18%;
-    --s: 23%;
-  }
-
-  .human-fire-a {
-    left: 43%;
-    bottom: 19%;
-  }
-
-  .human-fire-b {
-    left: 53%;
-    bottom: 21%;
-  }
-
-  .human-fort {
-    width: 20%;
-  }
-
-  .human-fort-a {
-    left: 20%;
-  }
-
-  .human-fort-b {
-    left: 58%;
+  .mineral-core,
+  .mineral-field__rings,
+  .mineral-field__shards i,
+  .mineral-field__veins i {
+    animation: none;
   }
 }

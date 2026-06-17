@@ -1,36 +1,32 @@
 # Krontium Content Model
 
-## Languages
+## Routes
 
-Compatibility language routes:
+Current public routes are compatibility shells:
 
-- English: `/en/`
-- Korean: `/ko/`
-- Chinese: `/zh/`
-- Japanese: `/ja/`
+- `/`
+- `/en/`
+- `/ko/`
+- `/zh/`
+- `/ja/`
+- legacy deep links
 
-The same route structure may exist across languages for URL compatibility, but visible multilingual UI is not part of the current no-text site.
+They should render the same no-text mineral field unless a future decision changes the routing model.
 
-## World Data
+## Data
 
-Shared world data lives in `src/data/krontium.ts`.
+`src/data/krontium.ts` stores material-state vocabulary only.
 
-Initial entities:
+Current states:
 
-- ancient gods
-- peoples
-- neutral orders
-- historical pressures
-- sample chronicle excerpts
+- basal ore
+- oxide shear
+- ember inclusion
 
-## Long-form Fiction
+## Text
 
-Long-form fiction is intentionally out of scope for the current website. If prose is added later, use content collections or MDX. Until then, route content should remain textless and visual.
+Visible text is out of scope by default. Metadata and hidden accessibility labels may exist, but the rendered page should remain no-text.
 
-## Routing Pattern
+## Scope
 
-```txt
-/
-/{lang}/
-/{lang}/chronicles/book-01/chapter-001/
-```
+No visible text UI by default. No content model beyond material-state vocabulary.

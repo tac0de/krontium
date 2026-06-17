@@ -1,0 +1,289 @@
+---
+const mineralShards = Array.from({ length: 76 }, (_, index) => {
+  const angle = index * 137.508;
+  const orbit = 18 + ((index * 19) % 54);
+  const x = 50 + Math.cos((angle * Math.PI) / 180) * orbit * 0.72;
+  const y = 50 + Math.sin((angle * Math.PI) / 180) * orbit * 0.42;
+  const height = 18 + ((index * 11) % 54);
+  const width = 3 + ((index * 7) % 11);
+  const tone = index % 9 === 0 ? "ember" : index % 5 === 0 ? "oxide" : "ore";
+
+  return {
+    style: `--x:${x.toFixed(2)}%;--y:${y.toFixed(2)}%;--r:${(angle + index * 9).toFixed(2)}deg;--h:${height}px;--w:${width}px;--delay:${(index * -0.17).toFixed(2)}s;`,
+    tone,
+  };
+});
+
+const mineralVeins = Array.from({ length: 34 }, (_, index) => {
+  const y = 14 + ((index * 17) % 72);
+  const x = 8 + ((index * 23) % 78);
+  const width = 9 + ((index * 13) % 34);
+  const angle = -34 + ((index * 29) % 68);
+
+  return {
+    style: `--x:${x}%;--y:${y}%;--w:${width}vmin;--r:${angle}deg;--delay:${(index * -0.23).toFixed(2)}s;`,
+  };
+});
+---
+
+<section class="mineral-field" aria-label="Krontium mineral pressure field">
+  <div class="mineral-field__css-art" aria-hidden="true">
+    <div class="mineral-field__halo"></div>
+    <div class="mineral-core">
+      <span style="--facet: 1"></span>
+      <span style="--facet: 2"></span>
+      <span style="--facet: 3"></span>
+      <span style="--facet: 4"></span>
+      <span style="--facet: 5"></span>
+      <span style="--facet: 6"></span>
+    </div>
+    <div class="mineral-field__rings"></div>
+    <div class="mineral-field__veins">
+      {mineralVeins.map((vein) => <i style={vein.style}></i>)}
+    </div>
+    <div class="mineral-field__shards">
+      {mineralShards.map((shard) => <i class={`is-${shard.tone}`} style={shard.style}></i>)}
+    </div>
+  </div>
+  <canvas class="mineral-field__canvas" data-krontium-field></canvas>
+</section>
+
+<script>
+  import * as THREE from "three";
+
+  const canvases = document.querySelectorAll("[data-krontium-field]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  for (const canvas of canvases) {
+    if (!(canvas instanceof HTMLCanvasElement)) continue;
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x050403, 0.018);
+
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 240);
+    camera.position.set(34, 18, 58);
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: false,
+      powerPreference: "high-performance",
+    });
+    renderer.setClearColor(0x050403, 1);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.35;
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    scene.add(new THREE.AmbientLight(0x4c4538, 1.4));
+
+    const key = new THREE.PointLight(0xd3b878, 260, 120);
+    key.position.set(-22, 18, 30);
+    scene.add(key);
+
+    const cold = new THREE.PointLight(0x506f75, 190, 100);
+    cold.position.set(32, -8, -16);
+    scene.add(cold);
+
+    const ember = new THREE.PointLight(0xb44f32, 120, 80);
+    ember.position.set(0, -18, 30);
+    scene.add(ember);
+
+    const coreMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x3a3125,
+      emissive: 0x1b1008,
+      metalness: 0.58,
+      roughness: 0.33,
+      transmission: 0.12,
+      thickness: 1.8,
+      clearcoat: 0.82,
+      clearcoatRoughness: 0.18,
+    });
+    const core = new THREE.Mesh(new THREE.IcosahedronGeometry(7.8, 4), coreMaterial);
+    core.rotation.set(0.44, 0.2, -0.34);
+    group.add(core);
+
+    const inner = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(5.2, 2),
+      new THREE.MeshBasicMaterial({
+        color: 0x050403,
+        transparent: true,
+        opacity: 0.74,
+      }),
+    );
+    group.add(inner);
+
+    const shardGeometry = new THREE.OctahedronGeometry(1, 0);
+    const shardMaterial = new THREE.MeshStandardMaterial({
+      color: 0x9f8550,
+      emissive: 0x120b04,
+      metalness: 0.35,
+      roughness: 0.48,
+      transparent: true,
+      opacity: 0.78,
+    });
+    const shardCount = 420;
+    const shards = new THREE.InstancedMesh(shardGeometry, shardMaterial, shardCount);
+    const matrix = new THREE.Matrix4();
+    const position = new THREE.Vector3();
+    const quaternion = new THREE.Quaternion();
+    const scale = new THREE.Vector3();
+    const euler = new THREE.Euler();
+    const shardData: Array<{
+      angle: number;
+      radius: number;
+      height: number;
+      scale: THREE.Vector3;
+      spin: number;
+    }> = [];
+
+    for (let i = 0; i < shardCount; i += 1) {
+      const ring = i / shardCount;
+      const radius = 12 + Math.pow(ring, 0.55) * 44 + Math.random() * 5;
+      const angle = i * 2.399963 + Math.random() * 0.25;
+      const height = (Math.random() - 0.5) * (12 + ring * 10);
+      const lane = (Math.random() - 0.5) * 0.25;
+      position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius * 0.45 + lane * radius);
+      euler.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+      quaternion.setFromEuler(euler);
+      const s = 0.18 + Math.random() * 1.8 * (1 - ring * 0.34);
+      scale.set(s * 0.42, s * (1.8 + Math.random() * 2.8), s * 0.38);
+      matrix.compose(position, quaternion, scale);
+      shards.setMatrixAt(i, matrix);
+      shardData.push({ angle, radius, height, scale: scale.clone(), spin: 0.08 + Math.random() * 0.22 });
+    }
+    group.add(shards);
+
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      color: 0xd2bc7b,
+      transparent: true,
+      opacity: 0.17,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+    });
+    const rings: Array<THREE.Mesh<THREE.TorusGeometry, THREE.MeshBasicMaterial>> = [];
+    for (const [radius, tube, tilt, opacity] of [
+      [12.5, 0.012, 1.22, 0.28],
+      [22, 0.01, 1.31, 0.18],
+      [35, 0.008, 1.38, 0.12],
+      [50, 0.006, 1.42, 0.08],
+    ]) {
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(radius, tube, 8, 220), ringMaterial.clone());
+      ring.material.opacity = opacity;
+      ring.rotation.set(tilt, 0.14, -0.18);
+      rings.push(ring);
+      group.add(ring);
+    }
+
+    const dustCount = 1800;
+    const dustPositions = new Float32Array(dustCount * 3);
+    const dustColors = new Float32Array(dustCount * 3);
+    const colorA = new THREE.Color(0xd9bf82);
+    const colorB = new THREE.Color(0x3f6b72);
+    const colorC = new THREE.Color(0xb04c32);
+    for (let i = 0; i < dustCount; i += 1) {
+      const r = 9 + Math.random() * 78;
+      const a = Math.random() * Math.PI * 2;
+      dustPositions[i * 3] = Math.cos(a) * r;
+      dustPositions[i * 3 + 1] = (Math.random() - 0.5) * 34;
+      dustPositions[i * 3 + 2] = Math.sin(a) * r * 0.55;
+      const c = Math.random() < 0.68 ? colorA : Math.random() < 0.78 ? colorC : colorB;
+      dustColors[i * 3] = c.r;
+      dustColors[i * 3 + 1] = c.g;
+      dustColors[i * 3 + 2] = c.b;
+    }
+    const dustGeometry = new THREE.BufferGeometry();
+    dustGeometry.setAttribute("position", new THREE.BufferAttribute(dustPositions, 3));
+    dustGeometry.setAttribute("color", new THREE.BufferAttribute(dustColors, 3));
+    const dust = new THREE.Points(
+      dustGeometry,
+      new THREE.PointsMaterial({
+        size: 0.095,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.72,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      }),
+    );
+    group.add(dust);
+
+    const veinMaterial = new THREE.LineBasicMaterial({
+      color: 0xd8bd79,
+      transparent: true,
+      opacity: 0.16,
+    });
+    const veins = new THREE.Group();
+    for (let i = 0; i < 42; i += 1) {
+      const points: THREE.Vector3[] = [];
+      const base = Math.random() * Math.PI * 2;
+      const radius = 10 + Math.random() * 46;
+      for (let j = 0; j < 8; j += 1) {
+        const a = base + j * 0.18;
+        points.push(new THREE.Vector3(Math.cos(a) * radius, (j - 4) * (Math.random() * 0.9), Math.sin(a) * radius * 0.48));
+      }
+      veins.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), veinMaterial));
+    }
+    group.add(veins);
+
+    const startTime = performance.now();
+    const target = new THREE.Vector3(0, 0, 0);
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      const width = Math.max(1, Math.round(rect.width));
+      const height = Math.max(1, Math.round(rect.height));
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height, false);
+    };
+
+    const animate = () => {
+      const time = (performance.now() - startTime) / 1000;
+      const pulse = 0.5 + Math.sin(time * 0.42) * 0.5;
+
+      core.rotation.y = time * 0.09;
+      core.rotation.x = 0.42 + Math.sin(time * 0.18) * 0.08;
+      inner.rotation.y = -time * 0.06;
+      group.rotation.y = time * 0.025;
+      dust.rotation.y = -time * 0.018;
+      veins.rotation.y = time * 0.014;
+
+      coreMaterial.emissive.setRGB(0.075 + pulse * 0.05, 0.038 + pulse * 0.025, 0.018);
+      ember.intensity = 85 + pulse * 85;
+
+      rings.forEach((ring, index) => {
+        ring.rotation.z = time * (0.015 + index * 0.006);
+        ring.material.opacity = (0.06 + (4 - index) * 0.045) * (0.8 + pulse * 0.35);
+      });
+
+      if (!reducedMotion) {
+        for (let i = 0; i < shardCount; i += 1) {
+          const data = shardData[i];
+          const a = data.angle + time * data.spin * (1 / Math.sqrt(data.radius));
+          position.set(Math.cos(a) * data.radius, data.height + Math.sin(time * 0.31 + i) * 0.35, Math.sin(a) * data.radius * 0.45);
+          euler.set(a * 0.4, time * data.spin + i, a);
+          quaternion.setFromEuler(euler);
+          matrix.compose(position, quaternion, data.scale);
+          shards.setMatrixAt(i, matrix);
+        }
+        shards.instanceMatrix.needsUpdate = true;
+      }
+
+      const orbit = reducedMotion ? 0 : time * 0.035;
+      camera.position.x = Math.cos(orbit + 0.74) * 62;
+      camera.position.z = Math.sin(orbit + 0.74) * 62;
+      camera.position.y = 18 + Math.sin(time * 0.11) * 5;
+      camera.lookAt(target);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+    animate();
+  }
+</script>

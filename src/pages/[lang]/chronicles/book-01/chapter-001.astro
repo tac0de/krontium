@@ -1,6 +1,6 @@
 ---
 import { languageCodes, languages, type Language } from "../../../../data/i18n";
-import KrontiumDiorama from "../../../../components/KrontiumDiorama.astro";
+import KrontiumField from "../../../../components/KrontiumField.astro";
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
 export function getStaticPaths() {
@@ -19,6 +19,6 @@ const base = import.meta.env.BASE_URL;
       <a href={base} class="silent-link" aria-label="Return to Krontium artwork"></a>
     </nav>
 
-    <KrontiumDiorama />
+    <KrontiumField />
   </main>
 </BaseLayout>

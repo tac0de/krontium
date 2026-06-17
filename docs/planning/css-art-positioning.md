@@ -1,18 +1,17 @@
-# CSS Art Positioning
+# Mineral Field Positioning
 
 Status: active direction for the website.
 
 ## Decision
 
-Krontium's website is an experimental no-text CSS art site. The novel remains a separate authoring project. The website should not try to explain the novel, summarize lore, localize copy, or behave like a conventional fiction archive.
+Krontium's website is a no-text mineral generative art site.
 
 ## Design Brief
 
 Audience:
 
-- visitors encountering a strange visual artifact
-- readers who may later associate the artwork with the novel
-- the author, using the site as a living visual identity lab
+- visitors encountering an unidentified mineral field
+- the author, using the site as a material/wordmark identity lab
 
 Primary action:
 
@@ -20,34 +19,29 @@ Primary action:
 
 Non-goals:
 
-- publish novel chapters
-- build a lore wiki
-- explain all worldbuilding
+- publish fiction
+- build explanatory content UI
+- explain a world
 - market with a generic hero section
 
 ## Visual Direction
 
-Build a no-text archaeological/specimen map. Use
-`docs/planning/visual-reference-board.md` as the active visual reference source
-before further production CSS work.
+Build a browser-native mineral pressure field.
 
-- cave-wall or parchment substrate
-- god systems as large nonhuman marks, not mascot characters
-- biological rings, anatomy, feather ribs, roots, currents, and pressure bands
-- human civilization as tiny fires, road marks, fortifications, tools, and route
-  growth
-- monastery as a central geometric neutral seal
+- black mineral core
+- crystalline shards
+- accretion dust and pressure rings
+- graphite darkness, bone-gold highlights, oxidized green-blue and ember accents
+- slow rotational mass
 - no visible labels
 
-The page should feel like a discovered visual record, not a cartoon scene or
-abstract background.
+The page should feel like Krontium is a material under pressure, not a poster.
 
 ## Implementation Rules
 
-- Prefer CSS art over image assets.
+- Prefer Three.js/WebGL for the primary visual field.
+- Use CSS for framing, darkness, grain, and responsive canvas behavior.
 - Keep visible copy at zero.
-- Preserve `/en`, `/ko`, `/zh`, `/ja` routes only for compatibility.
-- Avoid reusable card UI unless it is visually transformed into an artwork element.
-- Every visual section should be inspectable on mobile.
-- Reject variants that read as mascots, sticker sheets, generic fantasy maps,
-  cute character scenes, or abstract decoration.
+- Preserve old routes only for compatibility.
+- Avoid cards, panels, explanatory HUDs, and labels.
+- Reject variants that read as mascot, map, or generic sci-fi dashboard.

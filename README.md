@@ -1,8 +1,8 @@
 # Krontium
 
-Krontium is a multilingual archive-style website for a grounded epic fantasy long-form novel.
+Krontium is a no-text mineral generative art site.
 
-The site is built with Astro for static deployment on GitHub Pages. It serves English, Korean, Chinese, and Japanese entry points with a shared world model.
+The site is built with Astro and Three.js for static deployment on GitHub Pages. Compatibility routes render the same browser-native artwork.
 
 ## Commands
 
@@ -15,9 +15,9 @@ npm run build
 
 ## Project Shape
 
-- `docs/vision.md`: canonical visual and story direction
-- `docs/content-model.md`: data and localization model
-- `src/data/`: shared world and language data
+- `docs/vision.md`: current mineral visual direction
+- `docs/content-model.md`: compatibility route and material-state model
+- `src/data/`: material and compatibility-route data
 - `src/pages/`: Astro routes
 - `.github/workflows/deploy.yml`: GitHub Pages deployment
 
