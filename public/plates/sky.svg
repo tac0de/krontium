@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-label="Bone-Winged Sky specimen plate">
+  <rect width="720" height="920" fill="#111413"/>
+  <rect x="34" y="34" width="652" height="852" fill="#171815" stroke="#8f8668" stroke-width="2"/>
+  <path d="M360 104c-49 90-58 189-29 298 21 80 29 156 29 237" fill="none" stroke="#d7c7a0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M342 262c-88-72-171-104-250-96 18 73 71 136 159 189 37 22 72 51 105 87" fill="none" stroke="#b7a16f" stroke-width="6" stroke-linecap="round"/>
+  <path d="M378 262c88-72 171-104 250-96-18 73-71 136-159 189-37 22-72 51-105 87" fill="none" stroke="#b7a16f" stroke-width="6" stroke-linecap="round"/>
+  <g fill="none" stroke="#5b625a" stroke-width="3">
+    <path d="M147 187c37 23 77 55 121 96"/>
+    <path d="M118 231c54 27 105 61 154 102"/>
+    <path d="M573 187c-37 23-77 55-121 96"/>
+    <path d="M602 231c-54 27-105 61-154 102"/>
+  </g>
+  <g fill="none" stroke="#8d3b2d" stroke-width="3">
+    <path d="M260 690c-41 34-78 68-111 103"/>
+    <path d="M460 690c41 34 78 68 111 103"/>
+  </g>
+  <circle cx="360" cy="158" r="38" fill="none" stroke="#d7c7a0" stroke-width="5"/>
+  <path d="M332 153c20 8 40 8 58 0" fill="none" stroke="#d7c7a0" stroke-width="3"/>
+  <text x="64" y="84" fill="#b48242" font-family="Georgia, serif" font-size="22">D-02 AERIAL BODY</text>
+  <text x="64" y="842" fill="#d7c7a0" font-family="Georgia, serif" font-size="18">Feather / hollow rib / migration witness</text>
+</svg>

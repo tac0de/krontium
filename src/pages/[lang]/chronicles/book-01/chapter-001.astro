@@ -1,5 +1,5 @@
 ---
-import { chapterSample } from "../../../../data/krontium";
+import { chapterSample, marginalia } from "../../../../data/krontium";
 import { languageCodes, languages, type Language } from "../../../../data/i18n";
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
@@ -20,13 +20,35 @@ const base = import.meta.env.BASE_URL;
     </nav>
 
     <article class="chapter">
-      <p class="kicker">{copy.readerLabel}</p>
-      <h1>The Bark Measurement</h1>
-      <aside>
-        Preserved in the neutral cloister's third winter ledger. Translation
-        draft. Biological notes remain disputed.
-      </aside>
-      {chapterSample.map((paragraph: string) => <p>{paragraph}</p>)}
+      <header class="chapter-head">
+        <p class="kicker">{copy.readerLabel}</p>
+        <h1>The Bark Measurement</h1>
+        <dl>
+          <div>
+            <dt>Source</dt>
+            <dd>Neutral Cloister, third winter ledger</dd>
+          </div>
+          <div>
+            <dt>Witness</dt>
+            <dd>battlefield specimen, unblessed</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>translation draft, doctrine disputed</dd>
+          </div>
+        </dl>
+      </header>
+
+      <div class="translation-layout">
+        <div class="prose">
+          {chapterSample.map((paragraph: string) => <p>{paragraph}</p>)}
+        </div>
+        <aside class="marginalia" aria-label="Marginal notes">
+          {marginalia.map((note: string, index: number) => (
+            <p><span>{String(index + 1).padStart(2, "0")}</span>{note}</p>
+          ))}
+        </aside>
+      </div>
     </article>
   </main>
 </BaseLayout>

@@ -8,25 +8,30 @@ import LanguageGrid from "../components/LanguageGrid.astro";
   description="A multilingual archive for the grounded epic fantasy novel Krontium."
 >
   <main class="shell">
-    <section class="hero" aria-labelledby="site-title">
-      <div class="artifact" aria-hidden="true">
-        <div class="artifact__ring artifact__ring--outer"></div>
-        <div class="artifact__ring artifact__ring--middle"></div>
-        <div class="artifact__ring artifact__ring--inner"></div>
-        <div class="artifact__god artifact__god--earth"></div>
-        <div class="artifact__god artifact__god--sky"></div>
-        <div class="artifact__god artifact__god--sea"></div>
+    <section class="index-slab" aria-labelledby="site-title">
+      <div class="slab-visual" aria-hidden="true">
+        <img class="slab-plate slab-plate--earth" src={`${import.meta.env.BASE_URL}plates/earth.svg`} alt="" />
+        <img class="slab-plate slab-plate--sky" src={`${import.meta.env.BASE_URL}plates/sky.svg`} alt="" />
+        <img class="slab-plate slab-plate--sea" src={`${import.meta.env.BASE_URL}plates/sea.svg`} alt="" />
+        <div class="slab-map">
+          <img src={`${import.meta.env.BASE_URL}plates/war-atlas.svg`} alt="" />
+        </div>
       </div>
-      <div class="hero__content">
-        <p class="kicker">Monastic archive / biological myth / war chronicle</p>
+      <div class="slab-copy">
+        <p class="kicker">Neutral Cloister / Index Slab / Restricted Translation</p>
         <h1 id="site-title">Krontium</h1>
         <p>
-          Three ancient gods are studied like specimens, feared like sovereigns,
-          and misread like history. Humans survive by becoming faster than the
-          world that made them weak.
+          Three ancient gods leave bodies in history. Monks measure what priests
+          forbid, armies exploit what temples deny, and humans survive by making
+          memory faster than flesh.
         </p>
         <LanguageGrid />
       </div>
+      <aside class="slab-note" aria-label="Archive provenance">
+        <span>provenance</span>
+        Preserved from battlefield specimens, treaty copies, port ledgers, and
+        marginal objections copied under neutral seal.
+      </aside>
     </section>
   </main>
 </BaseLayout>

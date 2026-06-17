@@ -1,6 +1,6 @@
 ---
 import ArchiveLens from "../../components/ArchiveLens";
-import { archiveCards } from "../../data/krontium";
+import { archiveRecords, warLedger } from "../../data/krontium";
 import { languageCodes, languages, type Language } from "../../data/i18n";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -17,9 +17,13 @@ const base = import.meta.env.BASE_URL;
   <main class="archive-page">
     <header class="archive-hero">
       <a href={base} class="back-link">Krontium</a>
-      <p class="kicker">{copy.archive}</p>
+      <p class="kicker">Edition witness / {copy.archive}</p>
       <h1>{copy.title}</h1>
-      <p>{copy.subtitle}</p>
+      <p>
+        {copy.subtitle} This edition opens the Cloister dossier: god bodies,
+        campaign logistics, disputed translation, and the first bark
+        measurement.
+      </p>
       <a class="primary-link" href={`${base}${lang}/chronicles/book-01/chapter-001/`}>
         {copy.readFirst}
       </a>
@@ -27,13 +31,41 @@ const base = import.meta.env.BASE_URL;
 
     <ArchiveLens client:load />
 
-    <section class="archive-grid" aria-label="Archive records">
-      {archiveCards.map((card) => (
-        <article class="record-card">
-          <p>{card.eyebrow}</p>
-          <h2>{card.title}</h2>
-          <span></span>
-          <p>{card.body}</p>
+    <section class="ledger-band" aria-label="Cloister ledger">
+      <div class="ledger-copy">
+        <p class="kicker">Cloister Ledger</p>
+        <h2>No army enters with banners. No corpse leaves uncounted.</h2>
+        <p>
+          The archive records what every cult needs and every kingdom resents:
+          measurements, treaty witnesses, disputed maps, and the cost of
+          ordinary weather.
+        </p>
+      </div>
+      <ol class="ledger-list">
+        {warLedger.map(([period, event]) => (
+          <li>
+            <span>{period}</span>
+            <p>{event}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="atlas-band" aria-label="War atlas preview">
+      <img src={`${base}plates/war-atlas.svg`} alt="Archive-style war atlas showing roads, river, forts, and campaign movement" />
+      <div>
+        <p class="kicker">War Atlas</p>
+        <h2>History moves through roads, rivers, stores, and harvest windows.</h2>
+      </div>
+    </section>
+
+    <section class="record-list" aria-label="Archive records">
+      {archiveRecords.map((record) => (
+        <article class="record-row">
+          <p>{record.code}</p>
+          <h2>{record.title}</h2>
+          <p>{record.body}</p>
+          <span>{record.eyebrow}</span>
         </article>
       ))}
     </section>

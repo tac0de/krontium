@@ -23,15 +23,29 @@ export default function ArchiveLens() {
         ))}
       </div>
       <article className="lens__plate">
-        <p>{god.domain}</p>
-        <h2>{god.name}</h2>
-        <div className="specimen" data-index={active} aria-hidden="true">
-          <i />
-          <i />
-          <i />
+        <div>
+          <p className="plate-code">{god.archiveId}</p>
+          <h2>{god.name}</h2>
+          <p>{god.domain}</p>
         </div>
-        <p>{god.form}</p>
-        <p>{god.historicalReading}</p>
+        <div className="plate-body">
+          <img src={`${import.meta.env.BASE_URL}plates/${god.plate}.svg`} alt="" />
+          <dl>
+            <div>
+              <dt>Observed</dt>
+              <dd>{god.specimen}</dd>
+            </div>
+            <div>
+              <dt>Doctrine</dt>
+              <dd>{god.doctrine}</dd>
+            </div>
+            <div>
+              <dt>Exploit</dt>
+              <dd>{god.exploit}</dd>
+            </div>
+          </dl>
+        </div>
+        <p className="plate-note">{god.historicalReading}</p>
       </article>
     </section>
   );
